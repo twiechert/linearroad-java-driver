@@ -1,7 +1,7 @@
 ## Description
 
 This tool allows you to directly process the data returned by the Linear Road Benchmark data driver in Java.
-It integrates the provided C-libraries using JNA. This project already contains already a native build of these libraries compatible with Linux X64 operating systems.
+It integrates the provided C-libraries using JNA. This project already contains a native build of these libraries compatible with Linux X64 operating systems.
 
 
 In order to process the single tuples, you can use the following code snippet:
@@ -18,13 +18,20 @@ In order to process the single tuples, you can use the following code snippet:
 
 
 Whereas the callback is responsible to further process the data (e.g. sending it to stream processing tool).
-You can include this project as a maven dependency, adding the following element to you pom.xml:
+You can include this project as a maven dependency, adding the following to you pom.xml:
 
     <dependency>
         <groupId>com.github.twiechert</groupId>
         <artifactId>linearroad-java-driver</artifactId>
         <version>-SNAPSHOT</version>
      </dependency>
+
+     <repositories>
+     <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+     </repository>
+     </repositories>
 
 
 
