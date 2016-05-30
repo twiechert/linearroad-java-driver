@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -O3 -DNDEBUG  -shared -Wl,-soname,libdatadriver.so -o libdatadriver.so CMakeFiles/datadriver.dir/Tuple.cpp.o CMakeFiles/datadriver.dir/LRDataProvider.cpp.o CMakeFiles/datadriver.dir/libdatafeeder.cpp.o CMakeFiles/datadriver.dir/MemTuples.cpp.o 
