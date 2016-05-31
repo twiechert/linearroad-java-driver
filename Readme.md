@@ -6,16 +6,17 @@ It integrates the provided C-libraries using JNA. This project already contains 
 
 In order to process the single tuples, you can use the following code snippet:
 
-    DataDriver dataDriver = new DataDriver()
+```java
+DataDriver dataDriver = new DataDriver()
 
-    DataDriverLibrary.TupleReceivedCallback tupleReceivedCallback = new DataDriverLibrary.TupleReceivedCallback() {
-                public void invoke(String tuple) {
-                    System.out.println("Received!!!");
-                }
-            };
+DataDriverLibrary.TupleReceivedCallback tupleReceivedCallback = new DataDriverLibrary.TupleReceivedCallback() {
+            public void invoke(String tuple) {
+                System.out.println("Received!!!");
+            }
+        };
 
-    dataDriver.getLibrary().startProgram("path to raw file", tupleReceivedCallback);
-
+dataDriver.getLibrary().startProgram("path to raw file", tupleReceivedCallback);
+```
 
 Whereas the callback is responsible to further process the data (e.g. sending it to stream processing tool).
 You can include this project as a maven dependency, adding the following to you pom.xml:
