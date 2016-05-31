@@ -31,13 +31,14 @@ public class DataDriver {
     public void runSample() {
         DataDriverLibrary.TupleReceivedCallback tupleReceivedCallback = new DataDriverLibrary.TupleReceivedCallback() {
             public void invoke(String tuple) {
-                System.out.println("Received!!!");
+                String[] array = tuple.split(",");
+                System.out.println("Received: "+tuple);
+                System.out.println("Current speed is: "+array[3]);
+
             }
         };
 
         instance.startProgram(path,tupleReceivedCallback);
-        instance.test();
-
     }
 
     public DataDriverLibrary getLibrary() {return instance;}

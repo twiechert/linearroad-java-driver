@@ -11,8 +11,9 @@ DataDriver dataDriver = new DataDriver()
 
 DataDriverLibrary.TupleReceivedCallback tupleReceivedCallback = new DataDriverLibrary.TupleReceivedCallback() {
             public void invoke(String tuple) {
-                System.out.println("Received!!!");
-            }
+                String[] array = tuple.split(",");
+                System.out.println("Received: "+tuple);
+                System.out.println("Current speed is: "+array[3]);            }
         };
 
 dataDriver.getLibrary().startProgram("path to raw file", tupleReceivedCallback);
