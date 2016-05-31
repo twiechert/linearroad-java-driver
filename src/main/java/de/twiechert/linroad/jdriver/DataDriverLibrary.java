@@ -1,3 +1,5 @@
+package de.twiechert.linroad.jdriver;
+
 import com.sun.jna.Callback;
 import com.sun.jna.Library;
 

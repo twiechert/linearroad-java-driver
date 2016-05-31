@@ -7,9 +7,9 @@ It integrates the provided C-libraries using JNA. This project already contains 
 In order to process the single tuples, you can use the following code snippet:
 
 ```java
-DataDriver dataDriver = new DataDriver()
+de.twiechert.linroad.jdriver.DataDriver dataDriver = new de.twiechert.linroad.jdriver.DataDriver()
 
-DataDriverLibrary.TupleReceivedCallback tupleReceivedCallback = new DataDriverLibrary.TupleReceivedCallback() {
+de.twiechert.linroad.jdriver.DataDriverLibrary.TupleReceivedCallback tupleReceivedCallback = new de.twiechert.linroad.jdriver.DataDriverLibrary.TupleReceivedCallback() {
             public void invoke(String tuple) {
                 String[] array = tuple.split(",");
                 System.out.println("Received: "+tuple);
