@@ -1,3 +1,0 @@
-/home/tafyun/IdeaProjects/linearroad-java-driver/linroad-modified/src/build/CMakeFiles/edit_cache.dir
-/home/tafyun/IdeaProjects/linearroad-java-driver/linroad-modified/src/build/CMakeFiles/rebuild_cache.dir
-/home/tafyun/IdeaProjects/linearroad-java-driver/linroad-modified/src/build/CMakeFiles/datadriver.dir
