@@ -7,6 +7,20 @@ import com.sun.jna.Native;
  */
 public class DataDriver {
 
+    public enum Architecture {
+        X64_LINUX("datadriver"), X64_POWER_7("datadriverpower7"), X64_MACOS("macos");
+
+        String file;
+
+        Architecture(String file) {
+            this.file = file;
+        }
+
+        public String getFile() {
+            return file;
+        }
+    }
+
     // provide as arguement
     public static void main(String[] args) {
      DataDriver dataDriver = new DataDriver(args[0]);
@@ -17,10 +31,20 @@ public class DataDriver {
      private String path;
 
 
-    public DataDriver(String path) {
-        System.setProperty("jna.library.path", "datadriver");
+    public DataDriver(String path, String datadriverPath) {
+        System.setProperty("jna.library.path", datadriverPath);
         this.path = path;
 
+    }
+
+    public DataDriver(String path, Architecture architecture) {
+        System.setProperty("jna.library.path", architecture.getFile());
+        this.path = path;
+
+    }
+
+    public DataDriver(String datadriverPath) {
+        System.setProperty("jna.library.path", datadriverPath);
     }
 
     public DataDriver() {

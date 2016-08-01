@@ -120,6 +120,7 @@ extern "C"  int startProgram(char* path, void (*pt2Func)(char*))
 					{
 					        char* str =  lpTuples[i].ToString();
 					        (*pt2Func)(str);
+
 						delete str;
 					}
 
