@@ -27,29 +27,38 @@ public class DataDriver {
         dataDriver.runSample();
     }
 
-     private DataDriverLibrary instance = (DataDriverLibrary) Native.loadLibrary("datadriver", DataDriverLibrary.class);
-     private String path;
+     private DataDriverLibrary instance;
+     private String filePath;
 
 
-    public DataDriver(String path, String datadriverPath) {
-        System.setProperty("jna.library.path", datadriverPath);
-        this.path = path;
-
-    }
-
-    public DataDriver(String path, Architecture architecture) {
-        System.setProperty("jna.library.path", architecture.getFile());
-        this.path = path;
+    public DataDriver(String filePath, String searchPath) {
+        System.setProperty("jna.library.path", searchPath);
+        this.filePath = filePath;
+        this.instance =  (DataDriverLibrary) Native.loadLibrary(Architecture.X64_LINUX.getFile(), DataDriverLibrary.class);
 
     }
 
-    public DataDriver(String datadriverPath) {
-        System.setProperty("jna.library.path", datadriverPath);
+    public DataDriver(String filePath, Architecture architecture) {
+        this.filePath = filePath;
+        this.instance =  (DataDriverLibrary) Native.loadLibrary( architecture.getFile(), DataDriverLibrary.class);
+    }
+
+
+    public DataDriver(String filePath, String searchPath, Architecture architecture) {
+        System.setProperty("jna.library.path", searchPath);
+        this.filePath = filePath;
+        this.instance =  (DataDriverLibrary) Native.loadLibrary( architecture.getFile(), DataDriverLibrary.class);
+    }
+
+    public DataDriver(String searchPath) {
+
+        System.setProperty("jna.library.path", searchPath);
+        this.instance =  (DataDriverLibrary) Native.loadLibrary(Architecture.X64_LINUX.getFile(), DataDriverLibrary.class);
+
     }
 
     public DataDriver() {
-        System.setProperty("jna.library.path", "datadriver");
-
+        this.instance =  (DataDriverLibrary) Native.loadLibrary(Architecture.X64_LINUX.getFile(), DataDriverLibrary.class);
     }
 
     public void runSample() {
@@ -62,7 +71,7 @@ public class DataDriver {
             }
         };
 
-        instance.startProgram(path,tupleReceivedCallback);
+        instance.startProgram(filePath,tupleReceivedCallback);
     }
 
     public DataDriverLibrary getLibrary() {return instance;}
